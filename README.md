@@ -4,7 +4,9 @@
 *Date: December 2023*
 
 ## Overview
-This project aims to colorize grayscale images using Convolutional Neural Networks (CNNs) and the YUV color space. It includes functions for YUV to RGB conversion, image display, data preprocessing, and model evaluation. The CNN architecture is designed for colorization, and the FLOPS and MACCs are estimated for model analysis.
+This project aims to colorize grayscale images using Convolutional Neural Networks (CNNs) in the YUV color space. It includes functions for training and inference on multi-output-channel CNNs, as well as utilities for YUV to RGB conversion and display, and neural model complexity analysis based on FLOPs and MACCs. 
+
+The colab file included in this project includes all the details.
 
 ## Table of Contents
 - [Installation](#installation)
@@ -24,12 +26,15 @@ pip install numpy tensorflow matplotlib requests scipy
 
 ## Usage
 To use this project, follow these steps:
-1. Download images (DIV2K dataset).
-2. Convert images to YUV420p using FFmpeg.
-3. Create patches from images.
-4. Create NPZ file to store YUV channels for each image as numpy arrays.
-5. Mount Google Drive in your notebook to access NPZ data.
-6. Load YUV data from NPZ files using Google Drive paths.
+[Data Generation]
+1. Download images (DIV2K dataset). Images 001-800 are used as the training set and the images 801-900 are used as the testing set.
+2. Convert the images in each set to YUV420p using FFmpeg.
+3. Get random p x p patches from images in each set. Each patch comprises a p x p Y channel and two corresponding U, V channels at half resolution p/2 x p/2. The Y patches are written out to a Y file, while the U, V channels are output interleaved as 2 channels to a separate file.
+4. Randomly sort the patches from the Y and UV patch files.
+5. Create numpy NPZ array files to store the sorted Y and UV patches for each set for convenience. Note that each NPZ file contains one multi-dimensional Y array of size (#patches x p x p), and one corresponding multi-dimensional UV array of size (#patches x p/2 x p/2 x 2). There will be two NPZ files produced one for the training set and another for the testing set.
+
+[Training and testing - see colab code]
+6. Load YUV data NPZ files for training and testing using Google Drive paths.
 7. Split the training set into training and validation sets.
 8. Normalize and reshape the data using the `preprocess` function.
 9. Generate a CNN model with the `generate_cnn` function.
