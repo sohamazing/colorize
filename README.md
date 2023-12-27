@@ -48,7 +48,7 @@ The project utilizes YUV data stored in NPZ files. The training and testing data
 - Training Data: `/content/drive/MyDrive/train64.npz`
 - Testing Data: `/content/drive/MyDrive/valid64.npz`
 
-For each forward pass of the CNN:
+For each inference pass of the CNN:
 - Model inputs are the Y channels.
 - Model outputs (labels) are the U and V channels.
 - Together we have the predicted color YUV image.
