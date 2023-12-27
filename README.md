@@ -33,6 +33,7 @@ To use this project, follow these steps:
 5. Create numpy NPZ array files to store the sorted Y and UV patches for each set for convenience. Note that each NPZ file contains one multi-dimensional Y array of size (#patches x p x p), and one corresponding multi-dimensional UV array of size (#patches x p/2 x p/2 x 2). There will be two NPZ files produced one for the training set and another for the testing set.
 
 [Training and testing - see colab code]
+
 6. Load YUV data NPZ files for training and testing using Google Drive paths.
 7. Split the training set into training and validation sets.
 8. Normalize and reshape the data using the `preprocess` function.
