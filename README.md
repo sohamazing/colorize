@@ -14,7 +14,6 @@ This project aims to colorize grayscale images using Convolutional Neural Networ
 - [Training](#training)
 - [Evaluation](#evaluation)
 - [Results](#results)
-- [License](#license)
 - [Acknowledgments](#acknowledgments)
 
 ## Installation
@@ -46,7 +45,7 @@ The project utilizes YUV data stored in NPZ files. The training and testing data
 For each forward pass of the CNN:
 - Model inputs are the Y channels.
 - Model outputs (labels) are the U and V channels.
-- Together we have the predicted YUV image, which we can then convert to RGB.
+- Together we have the predicted color YUV image.
 
 ## Model
 The CNN model is designed for image colorization. It includes convolutional layers with varying filter sizes and strides. The architecture is defined in the `generate_cnn` function.
