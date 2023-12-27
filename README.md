@@ -20,7 +20,6 @@ The colab file included in this project includes all the details.
 
 ## Installation
 Ensure you have the required libraries installed. You can install them using the following command:
-```bash
 pip install numpy tensorflow matplotlib requests scipy
 
 
@@ -66,7 +65,6 @@ To train the model, execute the following steps directly in the Colab notebook:
 7. Save the trained model to Google Drive.
 
 Example training code:
-```python
 # Train the network
 my_cnn.fit(
     x=y_train_norm,
@@ -82,7 +80,7 @@ my_cnn.fit(
 The evaluation of the trained model can be performed using a custom testing function on the test set. The function `test_my_cnn` preprocesses the test data, generates UV colors using the trained model, and displays the results using the `display3` function directly in the Colab notebook.
 
 Example evaluation code:
-```python
+
 # Load the trained model
 model_out = '/content/drive/MyDrive/Colab Notebooks/colorizeA.keras'
 my_cnn = tf.keras.models.load_model(model_out)
